@@ -143,6 +143,7 @@
 (add-hook 'git-commit-mode-hook 'turn-on-flyspell)
 
 (require 'ido)
+(ido-vertical-mode)
 
 (defun my-set-export-face (&optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)
   (progn
