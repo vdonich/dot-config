@@ -9,5 +9,5 @@
 if [[ "$(uname -s)" == "Darwin" ]]; then
     export PATH="$HOME/bin:/opt/local/bin:/opt/local/sbin:$PATH"
 elif [[ "$(uname -s)" == "Linux" ]]; then
-    #TODO
+    echo TODO
 fi
