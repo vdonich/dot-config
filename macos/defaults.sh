@@ -9,6 +9,15 @@ sudo nvram SystemAudioVolume=%01
 # Enable SSH
 sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist
 
+# Accelerated playback when adjusting the window size (Cocoa applications).
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+
+# Enable "Reduce Motion" setting to make animations slightly less annoying.
+sudo defaults write com.apple.universalaccess reduceMotion -bool true
+
+# Disable animations when you open an application from the Dock.
+defaults write com.apple.dock launchanim -bool false
+
 # Enable tab in modal dialogs
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
@@ -38,6 +47,9 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo Hos
 
 # Set dark theme
 sudo defaults write /Library/Preferences/.GlobalPreferences AppleInterfaceTheme Dark
+
+# Enable autohide on the Dock.
+defaults write com.apple.dock autohide -bool true
 
 # Set minimal autohide/show delay for hidden dock
 defaults write com.apple.dock autohide-delay -float 0
@@ -107,7 +119,16 @@ defaults write com.apple.dashboard mcx-disabled -bool true
 defaults write com.apple.dock wvous-bl-corner -int 10
 defaults write com.apple.dock wvous-bl-modifier -int 0
 
+# Remove all default apps from the Dock.
+defaults write com.apple.dock persistent-apps -array
+
+# Pin Dock to the right edge.
+defaults write com.apple.dock orientation -string right
+
 ### Finder ###
+
+# Show all filename extensions.
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 # Show Finder status bar
 defaults write com.apple.finder ShowStatusBar -bool true
@@ -139,6 +160,9 @@ defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
 # Disable warning when emptying trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
+
+# Disable volume change beeps and UI sound effects (may require restart).
+defaults write -g com.apple.sound.beep.feedback -integer 0
 
 # Remove Dropbox's green checkmarks in Finder
 file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
@@ -206,15 +230,19 @@ defaults write com.apple.ActivityMonitor ShowCategory -int 0
 defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
 defaults write com.apple.ActivityMonitor SortDirection -int 0
 
-# Spaces Left, CMD+left
-defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 79 "{enabled = 1; value = { parameters = (65535, 123, 11534336); type = 'standard'; }; }"
-# Spaces Right, CMD+right
-defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 81 "{enabled = 1; value = { parameters = (65535, 124, 11534336); type = 'standard'; }; }"
+# Disable “natural” (Lion-style) scrolling.
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+# Spaces Left
+#defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 79 "{enabled = 1; value = { parameters = (65535, 123, 11534336); type = 'standard'; }; }"
+defaults write -g NSUserKeyEquivalents -dict-add "Move left a space" -string "@\UF702"
+# Spaces Right
+#defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 81 "{enabled = 1; value = { parameters = (65535, 124, 11534336); type = 'standard'; }; }"
 # Spaces Down
 #defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 83 "{enabled = 1; value = { parameters = (65535, 124, 11534336); type = 'standard'; }; }"
 # Spaces Up
 #defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 85
-"{enabled = 1; value = { parameters = (65535, 124, 11534336); type = 'standard'; }; }"
+#"{enabled = 1; value = { parameters = (65535, 124, 11534336); type = 'standard'; }; }"
 
 killall Dock
 killall Finder
