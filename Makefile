@@ -64,7 +64,7 @@ apt:
 	bash $(DOTFILES_DIR)/linux/apt.sh
 
 bash: brew
-	echo /usr/local/bin/bash >> /etc/shells
+	sudo echo /usr/local/bin/bash >> /etc/shells
 	chsh -s /usr/local/bin/bash
 
 brew:
