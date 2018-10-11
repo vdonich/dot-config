@@ -1,5 +1,9 @@
 ;;; init.el
 
+(setq-default custom-file (expand-file-name "custom.el" user-emacs-directory))
+(when (file-exists-p custom-file)
+  (load custom-file))
+
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
@@ -41,10 +45,6 @@
 (add-hook 'minibuffer-setup-hook
           (lambda ()
             (visual-line-mode -1)))
-
-(setq-default custom-file (expand-file-name "custom.el" user-emacs-directory))
-(when (file-exists-p custom-file)
-  (load custom-file))
 
 (setq sml/theme 'dark)
 (sml/setup)
