@@ -206,5 +206,15 @@ defaults write com.apple.ActivityMonitor ShowCategory -int 0
 defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
 defaults write com.apple.ActivityMonitor SortDirection -int 0
 
+# Spaces Left, CMD+left
+defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 79 "{enabled = 1; value = { parameters = (65535, 123, 11534336); type = 'standard'; }; }"
+# Spaces Right, CMD+right
+defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 81 "{enabled = 1; value = { parameters = (65535, 124, 11534336); type = 'standard'; }; }"
+# Spaces Down
+#defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 83 "{enabled = 1; value = { parameters = (65535, 124, 11534336); type = 'standard'; }; }"
+# Spaces Up
+#defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 85
+"{enabled = 1; value = { parameters = (65535, 124, 11534336); type = 'standard'; }; }"
+
 killall Dock
 killall Finder
