@@ -14,6 +14,12 @@
 
 (package-initialize)
 
+; fetch the list of packages available
+(unless package-archive-contents
+  (package-refresh-contents))
+
+(package-install-selected-packages)
+
 ;; get $PATH from shell
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
