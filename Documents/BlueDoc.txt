@@ -1,0 +1,19 @@
+#+SETUPFILE: ~/Documents/BlueDoc.txt
+
+#+HTML_HEAD: <style type="text/css">pre {font-family: Courier New;} h1,h2,h3 { font-family:Arial; font-weight:bold; } h1 {color: #4a86e8; font-size: 18pt; } h2,h3,h4,h5,h6 { color: #666; } h2 { font-size: 14pt; } h3 { font-size: 12pt; } h4 { font-size: 11pt; }</style>
+
+* Objective
+* Background
+* Overview
+* Detailed Design
+** Heading 2 (Use heading menu on toolbar to select headings)
+*** Heading 3
+*** Heading 3
+* Project Information
+* Caveats
+* Security Considerations
+* Privacy Considerations
+* Testing Plan
+* Work Estimates
+* Potential Patents
+* Document History

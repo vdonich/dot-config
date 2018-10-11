@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Ignores all one-word and two-word commands for more efficient
+# bash history searching
+export HISTIGNORE=?:??
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# ls colors
+export CLICOLOR=1
+export LSCOLORS=exgxbxbxCxfxfxCaCaeaea
+
+export TERM=xterm-color
+
+export EDITOR='emacsclient -nw'
+
+export HOMEBREW_CURLRC=1
+export HOMEBREW_FORCE_BREWED_CURL=1

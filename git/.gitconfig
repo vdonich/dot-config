@@ -1,0 +1,14 @@
+[core]
+        autocrlf = false
+        filemode = false
+[branch]
+        autosetuprebase = always
+[alias]
+        push-for-review = push origin HEAD:refs/for/master
+        push-with-modules = push origin HEAD:refs/for/master --recurse-submodules=on-demand
+        push-draft = push origin HEAD:refs/drafts/master
+        cleanup = "!git checkout master && git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
+        sync = !git checkout master && git pull && git submodule update --init --recursive
+        ws = "!git branch --sort=-committerdate --format '%(HEAD) %(refname:short) - %(color:red)%(contents:subject)%(color:reset) - (%(color:green)%(committerdate:relative)%(color:reset))'"
+[core]
+    	excludesfile = ~/.gitignore_global
