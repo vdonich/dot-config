@@ -71,6 +71,7 @@ brew:
 	curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install | /usr/bin/ruby
 	brew bundle --file=$(DOTFILES_DIR)/macos/.Brewfile
 
+.ONESHELL
 consolas:
 	cd $(mktemp -d)
 	curl -LO https://sourceforge.net/projects/mscorefonts2/files/cabs/PowerPointViewer.exe
