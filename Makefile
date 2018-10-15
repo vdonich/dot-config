@@ -42,7 +42,7 @@ usage:
 linux: apt stow
 	. $(HOME)/.bash_profile
 
-macos: bash brew consolas stow
+macos: bash brew consolas npm stow
 	bash $(DOTFILES_DIR)/macos/defaults.sh
 	stow macos
 	. $(HOME)/.bash_profile
@@ -78,8 +78,12 @@ consolas:
 	cabextract ppviewer.cab
 	open CONSOLA*.TTF
 
+npm:
+	mkdir -p $(HOME)/.npm-packages
+
 stow:
 	stow bash
 	stow git
+	stow npm
 	stow Documents
 	stow emacs
