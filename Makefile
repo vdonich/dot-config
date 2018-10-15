@@ -42,7 +42,7 @@ usage:
 linux: apt stow
 	. $(HOME)/.bash_profile
 
-macos: bash brew consolas npm stow
+macos: bash brew consolas npm eslint stow
 	bash $(DOTFILES_DIR)/macos/defaults.sh
 	stow macos
 	. $(HOME)/.bash_profile
@@ -80,6 +80,9 @@ consolas:
 
 npm:
 	mkdir -p $(HOME)/.npm-packages
+
+eslint: npm stow
+	npm install -g eslint eslint-config-google eslint-plugin-html
 
 stow:
 	stow bash
