@@ -3,5 +3,6 @@
 # files in one subdirectory, as opposed to having a separate folder
 # in the root dotfiles directory for the sake of Stow
 
+.Brewfile
 .DS_Store
 defaults.sh

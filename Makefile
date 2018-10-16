@@ -42,7 +42,7 @@ usage:
 linux: apt stow
 	. $(HOME)/.bash_profile
 
-macos: bash brew consolas npm eslint stow
+macos: bash brew consolas eslint stow emacs
 	bash $(DOTFILES_DIR)/macos/defaults.sh
 	stow macos
 	. $(HOME)/.bash_profile
@@ -58,7 +58,7 @@ unlink:
 	unlink $(HOME)/.inputrc
 	@printf "\\033[32m✓\\033[0m Symlinks removed. Manually remove ~/dot-config directory if needed.\\n"
 
-.PHONY: apt bash brew stow
+.PHONY: apt bash brew stow consolas emacs npm eslint
 
 apt:
 	bash $(DOTFILES_DIR)/linux/apt.sh
@@ -78,16 +78,19 @@ consolas:
 	  cabextract ppviewer.cab; \
 	  open CONSOLA*.TTF;
 
+emacs:
+	mkdir -p $(HOME)/.emacs.d
+	stow emacs
+
 npm:
 	mkdir -p $(HOME)/.npm-packages
 
-eslint: npm stow
+eslint: npm
 	npm install -g eslint eslint-config-google eslint-plugin-html
 
 stow:
+	mkdir -p $(HOME)/bin $(HOME)/Documents
 	stow bash
 	stow git
 	stow npm
-	stow bin
-	stow Documents
-	stow emacs
+	stow doc
