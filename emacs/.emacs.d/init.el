@@ -167,3 +167,6 @@
 
 (advice-add 'org-html-export-to-html :before 'my-set-export-face)
 (advice-add 'org-html-export-to-html :after 'my-restore-export-face)
+
+(put 'downcase-region 'disabled nil)
+(put 'erase-buffer 'disabled nil)
