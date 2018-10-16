@@ -88,5 +88,6 @@ stow:
 	stow bash
 	stow git
 	stow npm
+	stow bin
 	stow Documents
 	stow emacs
