@@ -3,16 +3,6 @@
 # Lists the top 4 processes by CPU usage
 alias hogs="ps -acrx -o pid,%cpu,command | awk 'NR<=5'"
 
-# Gerrit
-alias check-debug='git diff master | grep --color -A7 -B7 "console\|debug"'
-alias check-lint='LIST=`git diff-index --name-only HEAD~1 | grep "\.js\|\.html" | grep -v json;`; if [ "$LIST" ]; then eslint $LIST; fi; polylint --root polygerrit-ui/app --input elements/gr-app.html'
-alias run-gerrit='bb gerrit && java -jar bazel-bin/gerrit.war reindex -d ~/gerrit-testsite && java -jar bazel-bin/gerrit.war daemon -d ~/gerrit-testsite  --console-log --show-stack-trace'
-alias debug-gerrit='bb gerrit && java -jar bazel-bin/gerrit.war reindex -d ~/gerrit-testsite && java -jar -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=n bazel-bin/gerrit.war daemon -d ~/gerrit-testsite'
-alias upgrade-gerrit='bb gerrit && java -jar bazel-bin/gerrit.war init -b -d ~/gerrit-testsite'
-alias run-polygerrit='bb gerrit && java -jar bazel-bin/gerrit.war reindex -d ~/gerrit-testsite; say poly & java -jar bazel-bin/gerrit.war daemon --polygerrit-dev -d ~/gerrit-testsite --console-log --show-stack-trace'
-alias run-polygerrit-with-docs='bb gerrit && bb withdocs && java -jar bazel-bin/withdocs.war reindex -d ~/gerrit-testsite; say poly & java -jar bazel-bin/withdocs.war daemon --polygerrit-dev -d ~/gerrit-testsite --console-log --show-stack-trace'
-alias stop-gerrit='~/gerrit-testsite/bin/gerrit.sh stop'
-
 # HTTP Host latency for URL, e.g. "pref google.com"
 function perf {
   curl -o /dev/null -s -w "%{time_connect} + %{time_starttransfer} = %{time_total}\n" "$1"

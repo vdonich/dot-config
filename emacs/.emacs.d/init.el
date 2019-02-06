@@ -21,7 +21,7 @@
 (package-install-selected-packages)
 
 ;; get $PATH from shell
-(when (memq window-system '(mac ns))
+(when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
 
 ;; some weird emacs behaviors
@@ -41,16 +41,11 @@
 (tool-bar-mode -1)
 
 ;; visual-line-mode, adaptive-wrap-prefix-mode
-(global-visual-line-mode t)
-(setq visual-line-fringe-indicators 1)
-(when (fboundp 'adaptive-wrap-prefix-mode)
-  (defun my-activate-adaptive-wrap-prefix-mode ()
-    (adaptive-wrap-prefix-mode (if visual-line-mode 1 -1)))
-  (add-hook 'visual-line-mode-hook 'my-activate-adaptive-wrap-prefix-mode))
-
-(add-hook 'minibuffer-setup-hook
-          (lambda ()
-            (visual-line-mode -1)))
+;(global-visual-line-mode t)
+;; osx distnoted in high sierra goes nuts if you mess with the visual-line-mode
+;(add-hook 'minibuffer-setup-hook
+;          (lambda ()
+;            (visual-line-mode -1)))
 
 (setq sml/theme 'dark)
 (sml/setup)
@@ -103,9 +98,11 @@
 (add-to-list 'auto-mode-alist '("\\.bzl\\'" . bazel-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("BUILD" . bazel-mode))
+(add-to-list 'auto-mode-alist '("\\.fidl\\'" . idl-mode))
 
 (add-hook 'js2-mode-hook
           (defun my-js2-mode-setup ()
+            (add-node-modules-path)
             (flycheck-mode t)
             (when (executable-find "eslint")
               (flycheck-select-checker 'javascript-eslint))))
@@ -170,3 +167,4 @@
 
 (put 'downcase-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)
+(put 'upcase-region 'disabled nil)

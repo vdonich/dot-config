@@ -3,7 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(auto-revert-interval 0.1)
+ '(auto-revert-interval 1)
  '(auto-save-file-name-transforms
    (quote
     ((".*" "~/bak" t)
@@ -83,7 +83,7 @@
      ("org" . "http://orgmode.org/elpa/"))))
  '(package-selected-packages
    (quote
-    (protobuf-mode bazel-mode yaml-mode docker dockerfile-mode org-plus-contrib eslint-fix adoc-mode rainbow-delimiters exec-path-from-shell adaptive-wrap company htmlize web-mode visual-regexp-steroids smart-mode-line-powerline-theme ox-gfm ov narrow-indirect matlab-mode markdown-mode json-mode js3-mode js2-refactor js2-highlight-vars idomenu ido-vertical-mode haskell-mode graphviz-dot-mode go-mode git-commit gh-md fringe-helper flycheck fiplr find-file-in-repository diff-hl clang-format atomic-chrome)))
+    (dart-mode rust-auto-use rust-mode rust-playground rustic add-node-modules-path protobuf-mode bazel-mode yaml-mode docker dockerfile-mode org-plus-contrib eslint-fix adoc-mode rainbow-delimiters exec-path-from-shell adaptive-wrap company htmlize web-mode visual-regexp-steroids smart-mode-line-powerline-theme ox-gfm ov narrow-indirect matlab-mode markdown-mode json-mode js3-mode js2-refactor js2-highlight-vars idomenu ido-vertical-mode haskell-mode graphviz-dot-mode go-mode git-commit gh-md fringe-helper flycheck fiplr find-file-in-repository diff-hl clang-format atomic-chrome)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(smerge-command-prefix "\\C-cv")

@@ -161,6 +161,9 @@ defaults write com.apple.finder _FXSortFoldersFirst -bool true
 # Disable warning when emptying trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
+# empty Trash securely by default
+defaults write com.apple.finder EmptyTrashSecurely -bool true
+
 # Disable volume change beeps and UI sound effects (may require restart).
 defaults write -g com.apple.sound.beep.feedback -integer 0
 
@@ -233,9 +236,21 @@ defaults write com.apple.ActivityMonitor SortDirection -int 0
 # Disable “natural” (Lion-style) scrolling.
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
+# don't auto-rearrange spaces
+defaults write com.apple.dock mru-spaces -bool false
+
+# don't automatically switch to a space containing windows for an app
+defaults write com.apple.dock workspaces-auto-swoosh -bool false
+
+# disable window opening and closing animations
+defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+
+# fn + fkey for special behavior, not fkey alone
+defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
+
 # Spaces Left
 #defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 79 "{enabled = 1; value = { parameters = (65535, 123, 11534336); type = 'standard'; }; }"
-defaults write -g NSUserKeyEquivalents -dict-add "Move left a space" -string "@\UF702"
+#defaults write -g NSUserKeyEquivalents -dict-add "Move left a space" -string "@\UF702"
 # Spaces Right
 #defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 81 "{enabled = 1; value = { parameters = (65535, 124, 11534336); type = 'standard'; }; }"
 # Spaces Down

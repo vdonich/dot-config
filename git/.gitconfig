@@ -11,4 +11,6 @@
         sync = !git checkout master && git pull && git submodule update --init --recursive
         ws = "!git branch --sort=-committerdate --format '%(HEAD) %(refname:short) - %(color:red)%(contents:subject)%(color:reset) - (%(color:green)%(committerdate:relative)%(color:reset))'"
 [core]
-    	excludesfile = ~/.gitignore_global
+        excludesfile = ~/.gitignore_global
+[http]
+        cookiefile = ~/.gitcookies
