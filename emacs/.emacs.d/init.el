@@ -168,3 +168,28 @@
 (put 'downcase-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)
 (put 'upcase-region 'disabled nil)
+
+
+;; org-mode with plantuml?
+
+(with-eval-after-load 'org
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '(
+     (plantuml . t)
+     )))
+
+(setq org-plantuml-jar-path "/usr/local/Cellar/plantuml/1.2019.1/libexec/plantuml.jar")
+
+(defun my/org-confirm-babel-evaluate (lang body)
+  (not (member lang '("dot" "plantuml"))))
+(setq org-confirm-babel-evaluate 'my/org-confirm-babel-evaluate)
+
+(setq org-startup-with-inline-images t)
+
+(defun my/org-redisplay-inline-images ()
+  (interactive)
+  (when org-inline-image-overlays
+    (org-redisplay-inline-images)))
+
+(add-hook 'org-babel-after-execute-hook 'my/org-redisplay-inline-images)
