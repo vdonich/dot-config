@@ -99,6 +99,7 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("BUILD" . bazel-mode))
 (add-to-list 'auto-mode-alist '("\\.fidl\\'" . idl-mode))
+(add-to-list 'auto-mode-alist '(".*/org/.*\\.txt$" . org-mode))
 
 (add-hook 'js2-mode-hook
           (defun my-js2-mode-setup ()

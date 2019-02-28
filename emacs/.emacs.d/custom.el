@@ -10,7 +10,10 @@
      ("\\`/[^/]*:\\([^/]*/\\)*\\([^/]*\\)\\'" "/var/folders/00/0yt30000h01000cxqpysvccm003v8c/T/\\2" t))))
  '(backup-by-copying t)
  '(backup-by-copying-when-linked t)
- '(backup-directory-alist (quote (("gerrit" . "~/back/gerrit"))))
+ '(backup-directory-alist
+   (quote
+    (("gerrit" . "~/back/gerrit")
+     (".*" . "~/back"))))
  '(bazel-format-command "buildifier")
  '(column-number-mode t)
  '(company-idle-delay nil)
