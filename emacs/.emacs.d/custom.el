@@ -104,6 +104,7 @@
  '(package-selected-packages
    (quote
     (plantuml-mode dart-mode rust-auto-use rust-mode rust-playground rustic add-node-modules-path protobuf-mode bazel-mode yaml-mode docker dockerfile-mode org-plus-contrib eslint-fix adoc-mode rainbow-delimiters exec-path-from-shell adaptive-wrap company htmlize web-mode visual-regexp-steroids smart-mode-line-powerline-theme ox-gfm ov narrow-indirect matlab-mode markdown-mode json-mode js3-mode js2-refactor js2-highlight-vars idomenu ido-vertical-mode haskell-mode graphviz-dot-mode go-mode git-commit gh-md fringe-helper flycheck fiplr find-file-in-repository diff-hl clang-format atomic-chrome)))
+ '(plantuml-jar-path "")
  '(plantuml-java-command "plantuml")
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
