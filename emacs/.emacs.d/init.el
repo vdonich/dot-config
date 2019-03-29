@@ -174,6 +174,28 @@
 ;; org-mode with plantuml?
 
 (with-eval-after-load 'org
+
+  ;; replace things like {{{:TITLE}} with value of #+TITLE:
+  (defun my-org-body-filter (body backend info)
+    (replace-regexp-in-string
+     "{{{\\(:[^}]+\\)}}}"
+     (lambda (name)
+       (let* ((sym (intern (substring name 3 -3)))
+              (val (plist-get info sym)))
+         (format "%s "(and val (car val)))))
+     body))
+
+  (add-to-list 'org-export-filter-body-functions #'my-org-body-filter)
+
+  (defun my-org-html-src-block (oldfun src-block contents info)
+    "Wrap source blocks with with colored background."
+    (let* ((old-ret (funcall oldfun src-block contents info)))
+      (format
+       "<table><tr><td>%s</td></tr></table>" old-ret)
+      ))
+
+  (advice-add 'org-html-src-block :around #'my-org-html-src-block)
+
   (org-babel-do-load-languages
    'org-babel-load-languages
    '(
